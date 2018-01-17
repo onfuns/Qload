@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>Qload</title>
+</head>
+
+<body>
+	<div id="root"></div>
+	<script>
+		function createLink(cssname){
+			const link = document.createElement('link')
+			link.type="text/css" 
+			link.rel="stylesheet"
+			if(process.env.NODE_ENV){
+				const port = 8080
+				link.href = 'http://localhost:' + port + '/' + cssname
+			}else{
+				link.href = './' + cssname
+			}
+			document.getElementsByTagName('head')[0].appendChild(link)
+		}
+		function createScript(jsname){
+			const bundle = document.createElement('script')
+			if(process.env.NODE_ENV){
+				const port = 8080;
+				bundle.src = 'http://localhost:' + port + '/' + jsname
+			}else{
+				bundle.src = './' + jsname
+			}
+			document.body.appendChild(bundle)
+		}
+		createLink('lib.css')
+		createLink('app.css')
+		createScript('app.bundle.js')
+	</script>
+	<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+	<script>if (window.module) module = window.module;</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+.main{
+  height: 100%;
+  width: 100%;
+  .left{
+    width: 200px;
+    float: left;
+    border-right: 1px solid #D3D3D3;
+    border-top: 1px solid #D3D3D3;
+    background: #F1F1F1;
+    height: 100%;
+    ul > li{
+      height: 45px;
+      border-bottom: 1px solid #ccc;
+      line-height: 45px;
+      text-align: center;
+      cursor: pointer;
+      position: relative;
+      .tools{
+        font-size: 14px;
+        vertical-align: middle;
+        margin-left: 10px;
+        i{
+          cursor: pointer
+        }
+      }
+      .name{
+        display: inline-block;
+        width: 110px;
+        overflow: hidden;
+        height: 45px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        vertical-align: middle;
+      }
+    }
+    .active{
+      background: #DFDFDF
+    }
+    .addBucketBtn{
+      margin:0 auto;
+      display: block;
+    }
+  }
+  .right{
+    margin-left: 200px
+  }
+  :global{}
+}
+.previewImg{
+  display: block;
+  max-width: 300px;
+  margin:10px auto;
+}
