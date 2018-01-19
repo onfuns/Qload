@@ -106,7 +106,7 @@ module.exports ={
     })
   },
   uploadFile: (info,bucket) => {
-    const token = getQiniuToken(bucket,'6op4k08GHh69oB7jtFD0aNk2tZiWl5Qj3lH-KT-5','M1GPtltn5VNtj1BGETGIUtZLEsltpQUQYmg2kUJ3')
+    const token = getQiniuToken(bucket)
     const oMyForm = new FormData();
     oMyForm.append('token', token);
     oMyForm.append('key', info.file.name);

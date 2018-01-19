@@ -33,7 +33,7 @@ module.exports = merge(baseWebpackConfig,{
 		new webpack.HotModuleReplacementPlugin(),
 		new webpack.NamedModulesPlugin(),
 		new CopyWebpackPlugin([
-			{from: './src/main/app.js'},
+			{from: './src/main/main.js'},
 			{from: './src/main/index.html'}
 		])
 	]

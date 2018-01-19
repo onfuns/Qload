@@ -139,7 +139,8 @@ exports.isQiniuCallback = function(mac, requestURI, reqBody, callbackAuth) {
 }
 
 // 获取七牛上传所需token
-exports.getQiniuToken = function(bucket,accessKey,secretKey){
+exports.getQiniuToken = function(bucket){
+  let { accessKey, secretKey } = getCache('secretKeys')
   var mac = new qiniu.auth.digest.Mac(accessKey, secretKey)
   let options = {
     scope: bucket

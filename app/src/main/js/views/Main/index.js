@@ -288,7 +288,7 @@ class Main extends Component {
       name: 'file',
       multiple: true,
       showUploadList: true,
-      customRequest:(file) => uploadFile(file,'onfuns'),
+      customRequest:(file) => uploadFile(file,selectedBucket),
       onChange:(info) => {
         uploading = false
         const status = info.file.status;
@@ -348,7 +348,7 @@ class Main extends Component {
               <div style={{padding:10}}>
                 <Button type="primary" onClick={this.showUploadModal}>返回</Button>
               </div>
-              <div style={{height:300,padding:10}}>
+              <div style={{height:250,padding:10}}>
               <Dragger {...uploadProps}>
                 <p className="ant-upload-drag-icon">
                   <Icon type="inbox"/>

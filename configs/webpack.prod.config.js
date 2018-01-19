@@ -9,22 +9,26 @@ module.exports = merge(baseWebpackConfig,{
 	entry: {
 		'app': [
 			'babel-polyfill',
-			'react-hot-loader/patch',
 			'./src/main/js/index.js',
 		],
 	},
 	output: {
 		path: path.resolve(__dirname, '../app/build'),
 		filename: 'app.bundle.js',
-		publicPath: '/',
+		publicPath: './',
 	},
 	module: {
 		loaders: [],
 	},
+	target: 'electron-renderer',
+	node: {
+  	__dirname: false,
+  	__filename: false
+	},
 	plugins: [
 		new CopyWebpackPlugin([
 			{
-				from: './src/main/app.js', 
+				from: './src/main/main.js', 
 				to: path.join(__dirname, '../app/build')
 			},
 			{
@@ -42,6 +46,9 @@ module.exports = merge(baseWebpackConfig,{
         warnings: false
       }
     }),
-		new webpack.NamedModulesPlugin()
+		new webpack.NamedModulesPlugin(),
+		// new webpack.DefinePlugin({
+		// 	$dirname: '__dirname'
+		// }),
 	],
 })

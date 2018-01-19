@@ -20,7 +20,7 @@ module.exports = {
               options: {
 								modules: true,
 								url: false,
-                minimize: process.env.NODE_ENV === 'production'
+                minimize: true
               }
           }, {
               loader: "less-loader"
@@ -35,7 +35,7 @@ module.exports = {
               options: {
                 modules: false,
                 url: false,
-                minimize: process.env.NODE_ENV === 'production'
+                minimize: true
               }
           }, {
               loader: "less-loader"

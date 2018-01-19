@@ -1,5 +1,4 @@
 const electron = global.require('electron')
-const path = require('path')
 export const { remote,ipcRenderer }  = electron
 export const { BrowserWindow,dialog } = remote
 export const USER_HOME = process.platform === 'win32' ? process.env.USERPROFILE || '' : process.env.HOME || process.env.HOMEPATH || ''
@@ -19,7 +18,6 @@ export const maxWindow = ()=>{
 export const unmaxWindow = ()=>{
   ipcRenderer.send('unmax-window',currentWin)
 }
-
 export const createNewWindow = (options={}) =>{
   const win = new BrowserWindow(Object.assign({
     height: 768,
@@ -28,27 +26,9 @@ export const createNewWindow = (options={}) =>{
     resizable: false
   },options));
   const winURL = process.env.NODE_ENV === 'development'
-        ? 'http://localhost:8080'
-        : `file://${__dirname}/index.html`;
-  win.loadURL(`${winURL}#${options.path}`);
-    // if(process.env.NODE_ENV === 'development') {
-	// 		const {
-	// 		default: installExtension, 
-	// 		REACT_DEVELOPER_TOOLS, 
-	// 		REDUX_DEVTOOLS
-	// 	} = require('electron-devtools-installer')
-	// 	// Open the DevTools.
-	// 	mainWindow.webContents.openDevTools();
-		
-	// 	installExtension(REACT_DEVELOPER_TOOLS)
-	// 		.then((name) => console.log(`Added Extension:  ${name}`))
-	// 		.catch((err) => console.log('An error occurred: ', err));
-
-	// 	installExtension(REDUX_DEVTOOLS)
-	// 		.then((name) => console.log(`Added Extension:  ${name}`))
-	// 		.catch((err) => console.log('An error occurred: ', err));
-
-  // }
+    ? 'http://localhost:8080'
+    : `file://${__dirname}/index.html`
+  win.loadURL(`${winURL}#${options.path || ''}`);
   return win
 }
 

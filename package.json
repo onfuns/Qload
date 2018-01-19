@@ -5,12 +5,12 @@
     "name": "onfuns",
     "url": "https://github.com/onfuns"
   },
-  "main": "app.js",
-  "description": "工资智能计算软件",
+  "main": "main.js",
+  "description": "七牛轻客户端",
   "scripts": {
     "hot": "webpack-dev-server --color --config ./configs/webpack.dev.config.js",
-    "dev": "cross-env NODE_ENV=development electron ./app/src/main/app.js",
-    "build": "webpack -p --progress --color --config ./configs/webpack.prod.config.js",
+    "dev": "cross-env NODE_ENV=development electron ./app/src/main/main.js",
+    "build": "cross-env NODE_ENV=production webpack -p --progress --color --config ./configs/webpack.prod.config.js",
     "packageMac": "electron-packager ./app/build Qload --out ./dist --platform=darwin --arch=x64 --icon=logo.icns --version=0.0.1 --overwrite --no-prune  --ignore=.babelrc --ignore=configs --ignore=app/src",
     "packageWin": "electron-packager ./app/build Qload --out ./dist --platform=win32 --arch=ia32 --icon=logo.ico --version=0.0.1 --overwrite --no-prune --ignore=.babelrc --ignore=configs --ignore=app/src"
   },
