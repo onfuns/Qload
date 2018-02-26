@@ -1,8 +1,7 @@
-'use strict';
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
-import { configureStore, history } from './store/configureStore'
+import { configureStore } from './store/configureStore'
 import  './assets/css/Common.less'
 import App from './app'
 

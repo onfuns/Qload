@@ -46,9 +46,6 @@ module.exports = merge(baseWebpackConfig,{
         warnings: false
       }
     }),
-		new webpack.NamedModulesPlugin(),
-		// new webpack.DefinePlugin({
-		// 	$dirname: '__dirname'
-		// }),
-	],
+		new webpack.NamedModulesPlugin()
+	]
 })

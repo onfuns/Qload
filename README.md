@@ -8,5 +8,5 @@ npm run dev
 ### 编译
 npm run build  
 npm run packageMac (mac平台)  
-npm run packageWin (window平台)  
+npm run packageWin (win32平台)  
 
