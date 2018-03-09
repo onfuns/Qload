@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { HashRouter as RouterContainer} from 'react-router-dom'
 import { Route } from 'react-router-dom'
-import { Layout ,Button,Icon} from 'antd';
+import { Layout } from 'antd'
 const {  Content } = Layout
 import Headers from './components/Header'
 import Main from './views/Main'
