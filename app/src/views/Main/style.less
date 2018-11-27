@@ -1,0 +1,64 @@
+.main {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  .left {
+    position: relative;
+    width: 200px;
+    background: #001529;
+    color: #fff;
+    height: 100%;
+    ul>li {
+      height: 45px;
+      line-height: 45px;
+      text-align: center;
+      cursor: pointer;
+      position: relative;
+      .tools {
+        font-size: 14px;
+        vertical-align: middle;
+        margin-left: 10px;
+        i {
+          cursor: pointer
+        }
+      }
+      .name {
+        display: inline-block;
+        width: 110px;
+        overflow: hidden;
+        height: 45px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        vertical-align: middle;
+      }
+    }
+    .active {
+      background: #13C2C2
+    }
+    .addBucketBtn {
+      margin: 0 auto;
+      display: block;
+    }
+    .logout {
+      position: absolute;
+      bottom: 20px;
+      left: 10px;
+    }
+  }
+  .right {
+    flex: 1;
+  }
+  :global {
+    .ant-upload-list {
+      overflow: auto;
+      max-height: 300px;
+      padding-bottom: 50px;
+    }
+  }
+}
+
+.previewImg {
+  display: block;
+  max-width: 300px;
+  margin: 10px auto;
+}

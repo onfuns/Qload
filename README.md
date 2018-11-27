@@ -1,8 +1,10 @@
 # Qload
 七牛轻客户端
 
+Webpack4 + React16 +Mobx5 + Antd
+
 ### 开发
-npm run hot  
+npm run start  
 npm run dev
 
 ### 编译
