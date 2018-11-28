@@ -1,5 +1,11 @@
 const electron = require('electron');
-const { app, ipcMain, Menu, BrowserWindow } = electron;
+const { app, ipcMain, Menu, BrowserWindow, crashReporter } = electron;
+crashReporter.start({
+  companyName: 'onfuns',
+  productName: 'Qload',
+  submitURL: 'http://onfuns.com',
+  uploadToServer: false
+})
 
 const isDev = process.env.NODE_ENV == 'development'
 
@@ -52,7 +58,7 @@ function createWindow() {
   });
   mainWindow.loadURL(isDev ? `file://${__dirname}/app/build/index.html` : `file://${__dirname}/index.html`)
 
-  if (process.env.NODE_ENV !== 'development') {
+  if (!isDev) {
     let menu = Menu.buildFromTemplate(menuTemplate)
     Menu.setApplicationMenu(menu);
   }

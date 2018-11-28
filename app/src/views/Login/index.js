@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Form, Icon, Input, message } from 'antd'
 import { getBuckets } from '../../actions'
-import { createNewWindow, BrowserWindow, saveCache, getCache } from '../../utils/util'
+import { createNewWindow, saveCache, getCache } from '../../utils/util'
 import './style.less'
 const FormItem = Form.Item
 
@@ -13,6 +13,9 @@ class Login extends Component {
   goMainWindow = async () => {
     try {
       const data = await getBuckets()
+      if (data && data.error) {
+        return message.error('请检查KEY是否正确')
+      }
       createNewWindow({
         height: 600,
         width: 1100,
@@ -20,8 +23,7 @@ class Login extends Component {
       })
       saveCache('buckets', data)
     } catch (err) {
-      console.log(err)
-      message.error('验证不通过，请检查key值是否正确')
+      message.error('请检查KEY是否正确')
     }
   }
 
