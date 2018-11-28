@@ -39,7 +39,7 @@ const UploadFile = observer(({ onBack, fileStore }) => {
       <div style={{ height: 250, padding: 10 }}>
         <Dragger {...uploadProps}>
           <p>
-            <Icon type="inbox" />
+            <Icon type="inbox" style={{ fontSize: 60 }} />
           </p>
           <p>点击或拖拽上传</p>
         </Dragger>

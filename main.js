@@ -1,20 +1,22 @@
-const electron = require('electron');
-const { app, ipcMain, Menu, BrowserWindow, crashReporter } = electron;
-crashReporter.start({
-  companyName: 'onfuns',
-  productName: 'Qload',
-  submitURL: 'http://onfuns.com',
-  uploadToServer: false
-})
+const electron = require('electron')
+const { app, ipcMain, Menu, BrowserWindow, crashReporter } = electron
+
+//崩溃日志
+try {
+  crashReporter.start({
+    companyName: 'onfuns',
+    productName: 'Qload',
+    submitURL: 'http://onfuns.com',
+    uploadToServer: false
+  })
+} catch (err) { }
 
 const isDev = process.env.NODE_ENV == 'development'
-
 if (isDev) {
   require('electron-reload')(__dirname, {
     ignored: /node_modules|src/   //webpack 监听src目录下文件重新编译，这里不用再次监听，否则二次刷新
   })
 }
-
 
 const menuTemplate = [
   {
@@ -29,7 +31,8 @@ const menuTemplate = [
       }
     ]
   }
-];
+]
+//Mac 工具栏
 if (process.platform === 'darwin') {
   menuTemplate.unshift({
     label: app.getName(),
@@ -64,7 +67,7 @@ function createWindow() {
   }
 }
 
-let currentWin = BrowserWindow.getFocusedWindow
+const currentWin = BrowserWindow.getFocusedWindow
 ipcMain.on('hide-window', () => {
   currentWin().minimize();
 });
