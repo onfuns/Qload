@@ -5,7 +5,7 @@ Webpack4 + React16 +Mobx5 + Antd
 
 登录页 
 
-![](https://github.com/onfuns/Qload/raw/master/screenshots/qload-login.png)
+<img src="https://github.com/onfuns/Qload/raw/master/screenshots/qload-login.png"  width="250" height="345"/>
 
 主页 
 
